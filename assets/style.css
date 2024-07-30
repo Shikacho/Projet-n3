@@ -25,7 +25,7 @@ time, mark, audio, video {
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
@@ -52,6 +52,8 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color:#FFFEF8;
+	;
 }
 header {
 	display: flex;
@@ -82,7 +84,9 @@ h2{
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
-	color: #1D6154
+	color: #1D6154;
+	display: flex;
+	justify-content: center;
 }
 nav ul {
 	display: flex;
@@ -204,6 +208,36 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
+	
+}
+footer nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+	padding-top: 20px;
+} 
+
+footer {
+	display: block;
+	background-color: white;
+	width: 1440px;
+	height: 60px;
+	padding: none;
+	margin : none;
 }
 
+nav a {
+	color: initial;
+	text-decoration: none;
+}
+
+nav a:visited {
+	color: initial; 
+	text-decoration: none; 
+
+}
+
+nav a:hover {
+	color:#B1663C;
+
+}
