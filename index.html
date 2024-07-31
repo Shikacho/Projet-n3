@@ -19,7 +19,7 @@
 		<ul>
 			<li><a href="./index.html">Projets</a></li>
 			<li>contact</li>
-			<li><a href="./login.html">login</a></li>
+			<li id="login-logout"><a href="./login.html">Login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -67,6 +67,20 @@
 		</ul>
 	</nav>
 </footer>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const loginLogout = document.getElementById("login-logout");
+	
+		if (sessionStorage.getItem("loggedIn") === "true") {
+			loginLogout.innerHTML = '<a href="#" id="logout">Logout</a>';
+	
+			document.getElementById("logout").addEventListener("click", () => {
+				sessionStorage.removeItem("loggedIn");
+				window.location.href = "./login.html";
+			});
+		}
+	});
+	</script>
 <script src ="./index.js"></script>
 </body>
 </html>

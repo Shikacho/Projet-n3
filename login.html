@@ -27,12 +27,13 @@
 	<div class="login-container">
 	<form class="login-form">
 		<h2 class="login-title">Log In</h2>
-		<span class="login-label">E-mail</span>
-		<input type="email" class="login-input" required>
-		<span class="login-label">Mot de passe</span>
-		<input type="password" class="login-input" required>
-		<button class="login-button">Se connecter</button>
-		<a href="#" class="forgot-password">Mot de passe oublié</a>
+            <span class="login-label">E-mail</span>
+            <input type="email" class="login-input" id="email" required>
+            <span class="login-label">Mot de passe</span>
+            <input type="password" class="login-input" id="password" required>
+            <button class="login-button" type="submit">Se connecter</button>
+            <a href="#" class="forgot-password">Mot de passe oublié</a>
+            <p class="error-message" style="color: red; display: none;"></p>
 	</form>
 </div>
 </main>
@@ -43,5 +44,6 @@
 		</ul>
 	</nav>
 </footer>
+<script src="./login.js"></script>
 </body>
 </html>
