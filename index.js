@@ -20,45 +20,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  fetch("http://localhost:5678/api/works")
-    .then((response) => response.json())
-    .then((data) => {
-      const createButton = (text, filterFn) => {
-        const button = document.createElement("button");
-        button.textContent = text;
-        button.addEventListener("click", () => {
-          const activeButton = buttonsContainer.querySelector(".active");
-          if (activeButton) activeButton.classList.remove("active");
-          button.classList.add("active");
-          displayProjects(filterFn(data));
-        });
-        buttonsContainer.appendChild(button);
-      };
+  const fetchData = () => {
+    return fetch("http://localhost:5678/api/works")
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("projects", JSON.stringify(data));
+        return data;
+      });
+  };
 
-      createButton("Tous", () => data);
+  const createButton = (text, filterFn, data) => {
+    const button = document.createElement("button");
+    button.textContent = text;
+    button.addEventListener("click", () => {
+      const activeButton = buttonsContainer.querySelector(".active");
+      if (activeButton) activeButton.classList.remove("active");
+      button.classList.add("active");
+      displayProjects(filterFn(data));
+    });
+    buttonsContainer.appendChild(button);
+  };
 
-      const categoryIds = {
-        Objets: 1,
-        Appartements: 2,
-        "Hotels & Restaurants": 3,
-      };
+  const initializeButtons = (data) => {
+    createButton("Tous", () => data, data);
 
-      createButton("Objets", (data) =>
-        data.filter((work) => work.categoryId === categoryIds["Objets"])
-      );
-      createButton("Appartements", (data) =>
-        data.filter((work) => work.categoryId === categoryIds["Appartements"])
-      );
-      createButton("Hotels & Restaurants", (data) =>
+    const categoryIds = {
+      Objets: 1,
+      Appartements: 2,
+      "Hotels & Restaurants": 3,
+    };
+
+    createButton(
+      "Objets",
+      (data) =>
+        data.filter((work) => work.categoryId === categoryIds["Objets"]),
+      data
+    );
+    createButton(
+      "Appartements",
+      (data) =>
+        data.filter((work) => work.categoryId === categoryIds["Appartements"]),
+      data
+    );
+    createButton(
+      "Hotels & Restaurants",
+      (data) =>
         data.filter(
           (work) => work.categoryId === categoryIds["Hotels & Restaurants"]
-        )
-      );
+        ),
+      data
+    );
 
-      displayProjects(data);
-      buttonsContainer.querySelector("button").classList.add("active");
-    })
-    .catch((error) => {
-      console.error("Erreur lors de la récupération des données:", error);
-    });
+    displayProjects(data);
+    buttonsContainer.querySelector("button").classList.add("active");
+  };
+
+  const storedProjects = localStorage.getItem("projects");
+
+  if (storedProjects) {
+    const data = JSON.parse(storedProjects);
+    initializeButtons(data);
+  } else {
+    fetchData()
+      .then((data) => {
+        initializeButtons(data);
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la récupération des données:", error);
+      });
+  }
 });
