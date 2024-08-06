@@ -1,4 +1,4 @@
-
+/* Réinitialisation CSS */
 html,body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -19,19 +19,10 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-	
+
 article, aside, details, figcaption, figure,
-, header, hgroup, menu, nav, section {
+header, hgroup, menu, nav, section {
 	display: block;
-}
-.login-html {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	height: 100%;
 }
 
 body {
@@ -55,38 +46,46 @@ table {
 
 body {
 	max-width: 1440px;
-	margin:auto;
-	font-family: 'Work Sans' ;
+	margin: auto;
+	font-family: 'Work Sans';
 	font-size: 14px;
-	background-color:#FFFEF8;
-	;
+	background-color: #FFFEF8;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
-}
-section {
-	margin: 50px 0
+	margin: 50px 0;
+	padding-top: 60px;
+
 }
 
-h1{
+section {
+	margin: 50px 0;
+}
+
+
+header.with-edit-bar {
+    padding-top: 60px; 
+}
+
+h1 {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
-	color: #B1663C
+	color: #B1663C;
+	margin-right: auto;
 }
 
 h1 > span {
 	font-family: 'Work Sans';
-	font-size:10px;
+	font-size: 10px;
 	letter-spacing: 0.1em;
-;
 }
 
-h2{
+h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
@@ -94,12 +93,13 @@ h2{
 	display: flex;
 	justify-content: center;
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -108,13 +108,16 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
-	flex: 1
+	flex: 1;
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -122,8 +125,9 @@ li:hover {
 }
 
 #introduction article {
-	flex: 1
+	flex: 1;
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -131,16 +135,19 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
 .buttons {
 	display: flex;
 	gap: 10px;
 	margin-bottom: 20px;
 	justify-content: center;
 }
+
 .buttons button {
 	border: 2px solid #1D6154;
 	border-radius: 20px;
@@ -151,6 +158,7 @@ li:hover {
 	font-size: 16px;
 	font-family: 'syne';
 }
+
 .buttons button:hover {
 	background-color: #1D6154;
 	color: white;
@@ -166,22 +174,24 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
+
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
+
 #contact > * {
 	text-align: center;
-
 }
-#contact h2{
+
+#contact h2 {
 	margin-bottom: 20px;
 }
+
 #contact form {
 	text-align: left;
-	margin-top:30px;
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
@@ -192,36 +202,38 @@ margin: auto;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin : 2em auto ;
+	margin: 2em auto;
 	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
+	border-radius: 60px;
 }
 
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
-	
 }
+
 footer nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 	padding-top: 20px;
-} 
+}
 
 footer {
 	display: block;
@@ -229,7 +241,7 @@ footer {
 	width: 1440px;
 	height: 60px;
 	padding: none;
-	margin : none;
+	margin: none;
 }
 
 nav a {
@@ -238,86 +250,85 @@ nav a {
 }
 
 nav a:visited {
-	color: initial; 
-	text-decoration: none; 
-
+	color: initial;
+	text-decoration: none;
 }
 
 nav a:hover {
-	color:#B1663C;
-
+	color: #B1663C;
 }
 
+
 .login-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f2; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1024px;
-    margin: 0;
+	font-family: Arial, sans-serif;
+	background-color: #f8f8f2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 1024px;
+	margin: 0;
 }
 
 .login-container {
-    text-align: center;
-    width: 100%;
+	text-align: center;
+	width: 100%;
 }
 
 .login-form {
-    background-color: #FFFEF8; 
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    margin: auto;
-    text-align: center;
+	background-color: #FFFEF8;
+	padding: 20px;
+	border-radius: 8px;
+	width: 300px;
+	margin: auto;
+	text-align: center;
 	padding-top: 100px;
 }
 
 .login-title {
-    margin-bottom: 20px;
-    color: #004d40;
+	margin-bottom: 20px;
+	color: #004d40;
 }
 
 .login-label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    color: #333;
+	display: block;
+	text-align: left;
+	margin-bottom: 5px;
+	color: #333;
 	padding-left: 10px;
 }
 
 .login-input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px  #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+	width: calc(100% - 20px);
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
 }
 
 .login-button {
-    background-color: #004d40; 
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 70%;
+	background-color: #004d40;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	width: 70%;
 }
 
 .login-button:hover {
-    background-color: #00332d;
+	background-color: #00332d;
 }
 
 .forgot-password {
-    display: block;
-    margin-top: 15px;
-    color: black;
-    text-decoration: none;
+	display: block;
+	margin-top: 15px;
+	color: black;
+	text-decoration: none;
 }
 
 .forgot-password:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .login-footer {
@@ -326,17 +337,73 @@ nav a:hover {
 	width: 1440px;
 	height: 60px;
 	padding: none;
-	margin : none;
+	margin: none;
 }
+
 .login-footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
-	
 }
+
 .login-footer nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 	padding-top: 20px;
-} 
+}
 
+
+#edit-bar {
+	display: none;
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	height: 40px;
+	line-height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+#edit-bar .icon {
+	color: #fff;
+	font-size: 15px;
+	padding-right: 20px;
+}
+
+
+.modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-wrapper {
+	overflow: auto;
+	width: 600px;
+	max-width: calc(100vw -20px);
+	max-height;: calc(100vh -20px);
+	padding: 20px;
+	background-color: #fff;
+}
+
+a.js-modal {
+	color: inherit;
+	text-decoration: none;
+	font-size: 15px;
+	position: absolute;
+	right: 42.5%;
+	top: 54.5%;
+}

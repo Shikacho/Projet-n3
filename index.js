@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let allProjects = [];
   const gallery = document.querySelector(".gallery");
   const buttonsContainer = document.querySelector(".buttons");
+  const loginLogout = document.getElementById("login-logout");
+  const editBar = document.getElementById("edit-bar");
+  const header = document.querySelector("header");
+  const modalLink = document.querySelector(".js-modal");
 
   const displayProjects = (projects) => {
     gallery.innerHTML = "";
@@ -21,10 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const fetchData = () => {
-    return fetch("http://localhost:5678/api/works")
+    const token = localStorage.getItem("authToken");
+    return fetch("http://localhost:5678/api/works", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
-        localStorage.setItem("projects", JSON.stringify(data));
+        allProjects = data;
         return data;
       });
   };
@@ -75,12 +85,39 @@ document.addEventListener("DOMContentLoaded", () => {
     buttonsContainer.querySelector("button").classList.add("active");
   };
 
-  const storedProjects = localStorage.getItem("projects");
+  if (localStorage.getItem("loggedIn") === "true") {
+    loginLogout.innerHTML = '<a href="#" id="logout">Logout</a>';
+    editBar.style.display = "flex";
+    header.classList.add("with-edit-bar");
 
-  if (storedProjects) {
-    const data = JSON.parse(storedProjects);
-    initializeButtons(data);
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("authToken");
+      window.location.href = "./login.html";
+    });
+
+    if (modalLink) {
+      modalLink.style.display = "block";
+    }
+    
+    buttonsContainer.style.display = "none";
+
+    
+    fetchData()
+      .then((data) => {
+        displayProjects(data);
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la récupération des données:", error);
+      });
+
   } else {
+    editBar.style.display = "none";
+
+    if (modalLink) {
+      modalLink.style.display = "none";
+    }
+
     fetchData()
       .then((data) => {
         initializeButtons(data);
