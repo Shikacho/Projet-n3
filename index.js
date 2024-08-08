@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalLink = document.querySelector(".js-modal");
 
   const displayProjects = (projects) => {
-    console.log("Displaying projects:", projects);
     mainGallery.innerHTML = "";
     projects.forEach((work) => {
       const figure = document.createElement("figure");
@@ -29,20 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const fetchData = () => {
     const token = localStorage.getItem("authToken");
-    console.log("Fetching data with token:", token);
     return fetch("http://localhost:5678/api/works", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((response) => {
-        console.log("API response:", response);
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
-        console.log("Fetched data:", data);
         allProjects = data;
-        displayProjects(allProjects); 
+        displayProjects(allProjects);
         return data;
       })
       .catch((error) => {
@@ -63,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const initializeButtons = (data) => {
-    console.log("Initializing buttons with data:", data);
     createButton("Tous", () => data, data);
 
     const categoryIds = {
@@ -74,22 +67,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createButton(
       "Objets",
-      (data) =>
-        data.filter((work) => work.categoryId === categoryIds["Objets"]),
+      (data) => data.filter((work) => work.categoryId === categoryIds["Objets"]),
       data
     );
     createButton(
       "Appartements",
-      (data) =>
-        data.filter((work) => work.categoryId === categoryIds["Appartements"]),
+      (data) => data.filter((work) => work.categoryId === categoryIds["Appartements"]),
       data
     );
     createButton(
       "Hotels & Restaurants",
-      (data) =>
-        data.filter(
-          (work) => work.categoryId === categoryIds["Hotels & Restaurants"]
-        ),
+      (data) => data.filter((work) => work.categoryId === categoryIds["Hotels & Restaurants"]),
       data
     );
 
@@ -100,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchData()
     .then((data) => {
       if (localStorage.getItem("loggedIn") === "true") {
-        console.log("User is logged in");
         loginLogout.innerHTML = '<a href="#" id="logout">Logout</a>';
         editBar.style.display = "flex";
         header.classList.add("with-edit-bar");
@@ -116,17 +103,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         buttonsContainer.style.display = "none";
-        displayProjects(data); // Afficher sur la page principale
+        displayProjects(data);
       } else {
-        console.log("User is not logged in");
         editBar.style.display = "none";
 
         if (modalLink) {
           modalLink.style.display = "none";
         }
 
-        console.log("Initializing buttons for non-logged in user.");
-        initializeButtons(data); // Afficher sur la page principale avec filtres
+        initializeButtons(data);
       }
     })
     .catch((error) => {
