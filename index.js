@@ -47,12 +47,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const createButton = (text, filterFn, data) => {
     const button = document.createElement("button");
     button.textContent = text;
+
+    // Ajouter la classe active au bouton "Tous" par défaut
+    if (text === "Tous") {
+      button.classList.add("active");
+    }
+
     button.addEventListener("click", () => {
+      // Supprimer la classe active du bouton actuellement actif
       const activeButton = buttonsContainer.querySelector(".active");
       if (activeButton) activeButton.classList.remove("active");
+
+      // Ajouter la classe active au bouton cliqué
       button.classList.add("active");
+
+      // Afficher les projets filtrés
       displayProjects(filterFn(data));
     });
+
     buttonsContainer.appendChild(button);
   };
 

@@ -157,7 +157,8 @@ li:hover {
 	font-family: 'syne';
 }
 
-.buttons button:hover {
+.buttons button:hover,
+.buttons button.active {
 	background-color: #1D6154;
 	color: white;
 }
@@ -399,8 +400,8 @@ a.js-modal {
 	background-color: #fff;
 	padding: 20px;
 	width: 90%; 
-	max-width: 1200px; 
-	border-radius: 8px;
+	max-width: 900px; 
+	border-radius: 10px;
 	position: relative;
 	overflow-y: auto;
 	max-height: 90%;
@@ -410,7 +411,7 @@ a.js-modal {
 .js-modal-close {
 	position: absolute;
 	top: 10px;
-	right: 10px;
+	right: 15px;
 	background: none;
 	border: none;
 	font-size: 20px;
@@ -420,11 +421,11 @@ a.js-modal {
   
 #titlemodal {
 	font-family: Arial, sans-serif; 
-	font-size: 24px; 
+	font-size: 30px; 
 	font-weight: normal; 
 	color: #000; 
 	text-align: center; 
-	margin: 20px 0; 
+	margin: 50px 0; 
 }
 
 .modal .modal-gallery {
@@ -432,6 +433,8 @@ a.js-modal {
 	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
 	grid-gap: 10px;
 	margin-top: 20px;
+	padding: 200px;
+	padding-top: 10px;
 }
   
 .modal .modal-gallery figure {
