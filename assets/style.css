@@ -83,7 +83,7 @@ h1 > span {
 	letter-spacing: 0.1em;
 }
 
-h2, h4 {
+h2, h5 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
@@ -406,25 +406,25 @@ a.js-modal {
 	max-width: 900px; 
 	border-radius: 10px;
 	position: relative;
-	overflow-y: auto;
 	max-height: 90%;
 	height: 800px;
 }
   
 .js-modal-close {
 	position: absolute;
-	top: 10px;
-	right: 15px;
+	top: 30px;
+	right: 30px;
 	background: none;
 	border: none;
-	font-size: 20px;
+	font-size: 30px;
 	cursor: pointer;
 	color: #000; 
 }
   
-#titlemodal {
+#titlemodal,
+#titlemodal2 {
 	font-family: Arial, sans-serif; 
-	font-size: 30px; 
+	font-size: 35px; 
 	font-weight: normal; 
 	color: #000; 
 	text-align: center; 
@@ -434,7 +434,7 @@ a.js-modal {
 .modal .modal-gallery {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
-	grid-gap: 10px;
+	grid-gap: 15px;
 	margin-top: 20px;
 	padding: 200px;
 	padding-top: 10px;
@@ -467,4 +467,143 @@ a.js-modal {
 	cursor: pointer;
 	background-color: #000;
 	border-radius: 5px;
+}
+
+
+
+.add-photo-button-container {
+	text-align: center;
+	margin-top: 20px;
+	position: absolute;
+	left: 36%;
+	top: 85%;
+  }
+  
+  .add-photo-input {
+	display: none;
+  }
+  
+  .add-photo-button {
+	display: inline-block;
+	padding: 10px 30px;
+	background-color: #1D6154;
+	color: #ffffff;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	font-size: 20px;
+	text-align: center;
+	width: 250px;
+  }
+  
+  #add-photo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.back-button {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.photo-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #E8F1F6;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.photo-upload-container i {
+    font-size: 80px;
+    color: #CBD6DC;
+    margin-bottom: 10px;
+}
+
+.upload-label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-upload-input {
+    display: none;
+}
+
+.form-group {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+ 
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #F7F7F7;
+}
+
+.validate-button-container { 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.validate-button {
+    padding: 10px 30px;
+    background-color: grey;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    width: 250px;
+}
+  
+.upload-label span {
+	background-color: #CBD6DC;
+	color : #306685;
+	border-radius: 25px;
+	padding: 10px;
+}
+  
+  .validate-button:disabled {
+	background-color: #D3D3D3; /* Couleur grise pour le bouton désactivé */
+	cursor: not-allowed;
+  }
+
+#photo-preview {
+	width: 17%;
+	top: 21%;
+	position: absolute;
+	left: 45%;
+	
+	
 }

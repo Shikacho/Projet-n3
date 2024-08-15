@@ -26,10 +26,12 @@
       </ul>
     </nav>
   </header>
+
   <main>
+    <!-- Section Introduction -->
     <section id="introduction">
       <figure>
-        <img src="./assets/images/sophie-bluel.png" alt="" />
+        <img src="./assets/images/sophie-bluel.png" alt="Sophie Bluel" />
       </figure>
       <article>
         <h2>Designer d'espace</h2>
@@ -46,39 +48,86 @@
         </p>
         <p>
           En cas de besoin, une équipe pluridisciplinaire peut-être constituée
-          : architecte DPLG, décorateur(trice)
+          : architecte DPLG, décorateur(trice).
         </p>
       </article>
     </section>
+
+    <!-- Section Portfolio -->
     <section id="portfolio">
       <h2>Mes Projets</h2>
       <div class="overlay"></div>
       <a href="#modal1" class="js-modal"><i class="fas fa-pen-to-square icon"></i>Modifier</a>
+
+      <!-- Modale pour la galerie de projets -->
       <aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display: none;">
         <div class="modal-wrapper">
           <button class="js-modal-close"><i class="fas fa-times"></i></button>
           <h3 id="titlemodal">Galerie Photo</h3>
-          <div class="modal-gallery">
+          <div id="gallery-content" class="modal-content">
+            <div class="modal-gallery"></div>
+            <div class="add-photo-button-container">
+              <button id="add-photo-btn" class="add-photo-button">Ajouter une photo</button>
+            </div>
+          </div>
+
+          <!-- Formulaire d'ajout de photo -->
+          <div id="add-photo-content" class="modal-content" style="display: none;">
+            <button id="back-to-gallery" class="back-button"><i class="fas fa-arrow-left"></i></button>
+            <h4 id="titlemodal2">Ajout photo</h4>
+            <form id="photo-form">
+              
+              <div class="photo-upload-container">
+                <label for="photo-upload" class="upload-label">
+                  <i class="fa-regular fa-image"></i> 
+                  <span>+ Ajouter photo</span>
+                  <p>jpg, png : 4mo max</p>
+                </label>
+                <input type="file" id="photo-upload" name="photo-upload" class="photo-upload-input" accept="image/*" required />
+              </div>
+              <div id="photo-preview-container" style="display: none;">
+                <img id="photo-preview" src="" alt="Aperçu de l'image"/>
+            </div>
+              <div class="form-group">
+                <label for="photo-title">Titre</label>
+                <input type="text" id="photo-title" name="photo-title" required />
+              </div>
+              <div class="form-group">
+                <label for="photo-category">Catégorie</label>
+                <select id="photo-category" name="photo-category" required>
+                  <option value="" disabled selected></option>
+                  <option value="1">Objets</option>
+                  <option value="2">Appartements</option>
+                  <option value="3">Hotels & Restaurants</option>
+                </select>
+              </div>
+              <div id="form-error-message" style="color: red; display: none;"></div>
+              <div id="form-success-message" style="color: green; display: none;"></div>
+              <button type="submit" class="validate-button">Valider</button>
+            </form>
           </div>
         </div>
       </aside>
-      <div class="buttons"></div>
+
       <div class="main-gallery"></div>
     </section>
+
+    <!-- Section Contact -->
     <section id="contact">
-      <h4>Contact</h4>
+      <h5>Contact</h5>
       <p>Vous avez un projet ? Discutons-en !</p>
       <form action="#" method="post">
         <label for="name">Nom</label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" required />
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
+        <input type="email" name="email" id="email" required />
         <label for="message">Message</label>
-        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <textarea name="message" id="message" cols="30" rows="10" required></textarea>
         <input type="submit" value="Envoyer" />
       </form>
     </section>
   </main>
+
   <footer>
     <nav>
       <ul>
@@ -86,7 +135,10 @@
       </ul>
     </nav>
   </footer>
+
+  <!-- Scripts -->
   <script src="./index.js"></script>
   <script src="./app.js"></script>
+  <script src="./form.js"></script>
 </body>
 </html>

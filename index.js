@@ -101,7 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       if (localStorage.getItem("loggedIn") === "true") {
         loginLogout.innerHTML = '<a href="#" id="logout">Logout</a>';
-        editBar.style.display = "flex";
+
+        if (editBar) {
+          editBar.style.display = "flex";
+        } else {
+          console.error("L'élément avec l'ID 'edit-bar' est introuvable.");
+        }
+
         header.classList.add("with-edit-bar");
 
         document.getElementById("logout").addEventListener("click", () => {
@@ -114,16 +120,27 @@ document.addEventListener("DOMContentLoaded", () => {
           modalLink.style.display = "block";
         }
 
-        buttonsContainer.style.display = "none";
+        if (buttonsContainer) {
+          buttonsContainer.style.display = "none";
+        } else {
+          console.error("L'élément avec la classe 'buttons' est introuvable.");
+        }
+
         displayProjects(data);
       } else {
-        editBar.style.display = "none";
+        if (editBar) {
+          editBar.style.display = "none";
+        }
 
         if (modalLink) {
           modalLink.style.display = "none";
         }
 
-        initializeButtons(data);
+        if (buttonsContainer) {
+          initializeButtons(data);
+        } else {
+          console.error("L'élément avec la classe 'buttons' est introuvable.");
+        }
       }
     })
     .catch((error) => {
