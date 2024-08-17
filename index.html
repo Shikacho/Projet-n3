@@ -28,7 +28,6 @@
   </header>
 
   <main>
-    <!-- Section Introduction -->
     <section id="introduction">
       <figure>
         <img src="./assets/images/sophie-bluel.png" alt="Sophie Bluel" />
@@ -53,13 +52,14 @@
       </article>
     </section>
 
-    <!-- Section Portfolio -->
     <section id="portfolio">
       <h2>Mes Projets</h2>
       <div class="overlay"></div>
       <a href="#modal1" class="js-modal"><i class="fas fa-pen-to-square icon"></i>Modifier</a>
 
-      <!-- Modale pour la galerie de projets -->
+      
+      <div class="buttons"></div> 
+
       <aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display: none;">
         <div class="modal-wrapper">
           <button class="js-modal-close"><i class="fas fa-times"></i></button>
@@ -71,12 +71,10 @@
             </div>
           </div>
 
-          <!-- Formulaire d'ajout de photo -->
           <div id="add-photo-content" class="modal-content" style="display: none;">
             <button id="back-to-gallery" class="back-button"><i class="fas fa-arrow-left"></i></button>
             <h4 id="titlemodal2">Ajout photo</h4>
             <form id="photo-form">
-              
               <div class="photo-upload-container">
                 <label for="photo-upload" class="upload-label">
                   <i class="fa-regular fa-image"></i> 
@@ -87,7 +85,7 @@
               </div>
               <div id="photo-preview-container" style="display: none;">
                 <img id="photo-preview" src="" alt="Aperçu de l'image"/>
-            </div>
+              </div>
               <div class="form-group">
                 <label for="photo-title">Titre</label>
                 <input type="text" id="photo-title" name="photo-title" required />
@@ -112,7 +110,6 @@
       <div class="main-gallery"></div>
     </section>
 
-    <!-- Section Contact -->
     <section id="contact">
       <h5>Contact</h5>
       <p>Vous avez un projet ? Discutons-en !</p>
@@ -136,7 +133,6 @@
     </nav>
   </footer>
 
-  <!-- Scripts -->
   <script src="./index.js"></script>
   <script src="./app.js"></script>
   <script src="./form.js"></script>

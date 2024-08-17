@@ -20,7 +20,7 @@ const openModal1 = (e) => {
     document.getElementById('titlemodal').style.display = 'none';
 
     
-    document.getElementById('add-photo-content').style.display = 'flex';
+    document.getElementById('add-photo-content').style.display = 'block';
     document.getElementById('titlemodal2').style.display = 'block';
   });
 
@@ -42,6 +42,12 @@ const closeModal = (e) => {
   const isClickOnCloseButton = e.target.closest('.js-modal-close');
   if (!isClickInside || isClickOnCloseButton) {
     e.preventDefault();
+
+    document.getElementById('add-photo-content').style.display = 'none';
+    document.getElementById('titlemodal2').style.display = 'none';
+    document.getElementById('gallery-content').style.display = 'flex';
+    document.getElementById('titlemodal').style.display = 'block';
+
     modal.style.display = "none";
     modal.setAttribute('aria-hidden', 'true');
     modal.removeAttribute('aria-modal');

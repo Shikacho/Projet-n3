@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     document.getElementById('photo-upload').addEventListener('change', function(event) {
         const file = event.target.files[0]; 
         const previewContainer = document.getElementById('photo-preview-container'); 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const formData = new FormData();
         formData.append('title', title);
-        formData.append('categoryId', categoryId); 
+        formData.append('category', categoryId); 
         formData.append('image', file);
 
         const token = localStorage.getItem("authToken");
@@ -109,6 +109,21 @@ document.addEventListener('DOMContentLoaded', function() {
             figure.appendChild(img);
             figure.appendChild(caption);
             mainGallery.appendChild(figure);
+
+            
+            const modalGallery = document.querySelector('.modal-gallery');
+            const modalFigure = figure.cloneNode(true); 
+
+            
+            const deleteButton = document.createElement('button');
+            deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+            deleteButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                deleteProject(data.id);
+            });
+
+            modalFigure.appendChild(deleteButton);
+            modalGallery.appendChild(modalFigure);
 
             
             document.getElementById('back-to-gallery').click();

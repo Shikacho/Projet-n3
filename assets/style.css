@@ -526,12 +526,14 @@ a.js-modal {
     max-width: 500px;
     margin-bottom: 30px;
     text-align: center;
+	box-sizing: border-box;
 }
 
 .photo-upload-container i {
     font-size: 80px;
     color: #CBD6DC;
     margin-bottom: 10px;
+
 }
 
 .upload-label {
@@ -566,6 +568,7 @@ a.js-modal {
     border-radius: 5px;
     font-size: 16px;
     background-color: #F7F7F7;
+	box-sizing: border-box;
 }
 
 .validate-button-container { 
@@ -585,6 +588,9 @@ a.js-modal {
     font-size: 20px;
     text-align: center;
     width: 250px;
+	position: absolute;
+	left: 37%;
+	top: 80%;
 }
   
 .upload-label span {
@@ -603,7 +609,11 @@ a.js-modal {
 	width: 17%;
 	top: 21%;
 	position: absolute;
-	left: 45%;
-	
-	
+	left: 43%;
+		
+}
+
+#photo-form {
+	max-width: 500px;
+	margin: auto;
 }

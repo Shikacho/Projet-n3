@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
   const modalLink = document.querySelector(".js-modal");
 
+  console.log(buttonsContainer);  
+
   const displayProjects = (projects) => {
     mainGallery.innerHTML = "";
     projects.forEach((work) => {
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data); 
         allProjects = data;
         displayProjects(allProjects);
         return data;
@@ -48,20 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.createElement("button");
     button.textContent = text;
 
-    // Ajouter la classe active au bouton "Tous" par défaut
     if (text === "Tous") {
       button.classList.add("active");
     }
 
     button.addEventListener("click", () => {
-      // Supprimer la classe active du bouton actuellement actif
       const activeButton = buttonsContainer.querySelector(".active");
       if (activeButton) activeButton.classList.remove("active");
 
-      // Ajouter la classe active au bouton cliqué
       button.classList.add("active");
-
-      // Afficher les projets filtrés
       displayProjects(filterFn(data));
     });
 
@@ -69,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const initializeButtons = (data) => {
+    console.log("initializeButtons est appelé");
     createButton("Tous", () => data, data);
 
     const categoryIds = {
@@ -118,12 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (modalLink) {
           modalLink.style.display = "block";
-        }
-
-        if (buttonsContainer) {
-          buttonsContainer.style.display = "none";
-        } else {
-          console.error("L'élément avec la classe 'buttons' est introuvable.");
         }
 
         displayProjects(data);
