@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const submitButton = document.querySelector('.validate-button');
+    const titleInput = document.getElementById('photo-title');
+    const categoryInput = document.getElementById('photo-category');
+    const fileInput = document.getElementById('photo-upload');
+
+    function checkFormValidity() {
+        const title = titleInput.value.trim();
+        const categoryId = categoryInput.value;
+        const file = fileInput.files[0];
+
+        if (title && categoryId && file) {
+            submitButton.classList.remove('button-disabled');
+            submitButton.classList.add('button-enabled');
+            submitButton.disabled = false;
+        } else {
+            submitButton.classList.remove('button-enabled');
+            submitButton.classList.add('button-disabled');
+            submitButton.disabled = true;
+        }
+    }
+
+    // Initialisez l'état du bouton
+    checkFormValidity();
+
+    // Attachez les écouteurs d'événements pour vérifier la validité du formulaire en temps réel
+    titleInput.addEventListener('input', checkFormValidity);
+    categoryInput.addEventListener('change', checkFormValidity);
+    fileInput.addEventListener('change', checkFormValidity);
 
     document.getElementById('photo-upload').addEventListener('change', function(event) {
         const file = event.target.files[0]; 
@@ -20,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    
     document.getElementById('photo-preview').addEventListener('click', function() {
         const previewContainer = document.getElementById('photo-preview-container');
         const photoUploadInput = document.getElementById('photo-upload');
@@ -29,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
         photoUploadInput.value = ''; 
     });
 
-    
     document.getElementById('photo-form').addEventListener('submit', function(event) {
         event.preventDefault(); 
 
@@ -40,13 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const fileInput = document.getElementById('photo-upload');
         const file = fileInput.files[0];
 
-        
         errorMessageDiv.innerHTML = '';
         successMessageDiv.innerHTML = '';
         errorMessageDiv.style.display = 'none';
         successMessageDiv.style.display = 'none';
 
-        
         console.log(`CategoryId récupéré: ${categoryId}`);
 
         if (!title || !categoryId || !file) {
@@ -55,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        
         const formData = new FormData();
         formData.append('title', title);
         formData.append('category', categoryId); 
@@ -90,11 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
             successMessageDiv.innerHTML = 'Projet ajouté avec succès !';
             successMessageDiv.style.display = 'block';
 
-            
             document.getElementById('photo-form').reset();
             document.getElementById('photo-preview-container').style.display = 'none';
+            checkFormValidity();
 
-            
             const mainGallery = document.querySelector('.main-gallery');
             const figure = document.createElement('figure');
             figure.setAttribute('data-id', data.id);
@@ -110,11 +132,9 @@ document.addEventListener('DOMContentLoaded', function() {
             figure.appendChild(caption);
             mainGallery.appendChild(figure);
 
-            
             const modalGallery = document.querySelector('.modal-gallery');
             const modalFigure = figure.cloneNode(true); 
 
-            
             const deleteButton = document.createElement('button');
             deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
             deleteButton.addEventListener('click', (event) => {
@@ -125,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
             modalFigure.appendChild(deleteButton);
             modalGallery.appendChild(modalFigure);
 
-            
             document.getElementById('back-to-gallery').click();
         })
         .catch(error => {

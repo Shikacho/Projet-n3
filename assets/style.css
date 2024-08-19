@@ -592,6 +592,15 @@ a.js-modal {
 	left: 37%;
 	top: 80%;
 }
+.button-disabled {
+	background-color: grey;
+	cursor: not-allowed;
+}
+
+.button-enabled {
+	background-color: #1D6154;
+	cursor: pointer;
+}
   
 .upload-label span {
 	background-color: #CBD6DC;
