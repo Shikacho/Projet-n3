@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initialisez l'état du bouton
+    
     checkFormValidity();
 
-    // Attachez les écouteurs d'événements pour vérifier la validité du formulaire en temps réel
+    
     titleInput.addEventListener('input', checkFormValidity);
     categoryInput.addEventListener('change', checkFormValidity);
     fileInput.addEventListener('change', checkFormValidity);
